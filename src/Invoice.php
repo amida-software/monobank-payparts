@@ -18,7 +18,7 @@ class Invoice
     private $source = null;
     private $type = null;
 
-    public function __construct(string $orderId, string $customerTelephone, string $number, array $availablePartsCount)
+    public function __construct(string $orderId, string $customerTelephone, string $number, int $availablePartsCount = 3)
     {
         $this->orderId = $orderId;
         $this->customerTelephone = $customerTelephone;
@@ -43,7 +43,7 @@ class Invoice
         return $this->number;
     }
 
-    public function getAvailablePartsCount(): array
+    public function getAvailablePartsCount(): int
     {
         return $this->availablePartsCount;
     }
@@ -52,7 +52,7 @@ class Invoice
     {
         return [
             [
-                'available_parts_count' => $this->getAvailablePartsCount(),
+                'available_parts_count' => [$this->getAvailablePartsCount()],
                 'type' => $this->getType()
             ]
         ];

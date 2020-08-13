@@ -17,7 +17,6 @@ class Rule
             'invoice.number' => 'required',
             'invoice.source' => sprintf('required|in:%s,%s', Invoice::INVOICE_SOURCE_INTERNET, Invoice::INVOICE_SOURCE_STORE),
             'available_programs' => 'required|array',
-            'available_programs.*.available_parts_count' => 'required|array',
             'available_programs.*.available_parts_count.*' => 'required|gte:3|lte:25',
             'available_programs.*.type' => sprintf('required|string|in:%s', Invoice::INVOICE_PROGRAM_TYPE_INSTALLMENTS),
             'products' => 'required|array',
